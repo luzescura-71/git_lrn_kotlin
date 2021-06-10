@@ -1,0 +1,26 @@
+package com.example.diceeroller
+
+import android.os.Bundle
+import android.widget.Button
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import kotlin.random.Random
+
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        val rollButton : Button = findViewById(R.id.roll_button)
+        rollButton.text = "Lets Roll"
+        rollButton.setOnClickListener {
+            rollDice()
+        }
+    }
+
+    private fun rollDice() {
+        val randomInt = Random.nextInt(6)+1
+        val diceText : TextView = findViewById(R.id.dice_text)
+        diceText.text = randomInt.toString()
+    }
+}
